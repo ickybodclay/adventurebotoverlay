@@ -38,6 +38,8 @@ if (seo.url === "glitch-default") {
 /**
  * Our home page route
  *
+ * TODO: Add SSE client to listen for adventure bot endpoint changes
+ *
  * Returns src/pages/index.hbs with data built into it
  */
 fastify.get("/", function (request, reply) {
