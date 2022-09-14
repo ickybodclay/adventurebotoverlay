@@ -84,7 +84,7 @@
         const roundEnd = roundStartTime + (roundDurationInMins*60*1000);
         const timeRemainingInMs = Math.abs(roundEnd - currentTime);
         if (timeRemainingInMs == 0) return 0;
-        return Math.max(0, timeRemainingInMs / 1000);
+        return Math.round(Math.max(0, timeRemainingInMs / 1000));
       }
     </script>
     {{/if}}    

@@ -58,10 +58,15 @@ p {
     1px   1px   3px  #55007f;
 }
 
+ol {
+  display: flex;
+}
+
 li {
   color: white;
   font-size: 36px;
   font-weight: bold;
+  margin: 0 2em 2em;
 }
 
 #option1 {
@@ -74,10 +79,10 @@ li {
 
 #option2 {
   text-shadow:
-    -1px  -1px  3px  #C9C19F,  
-    1px   -1px  3px  #C9C19F,
-    -1px  1px   3px  #C9C19F,
-    1px   1px   3px  #C9C19F;
+    -1px  -1px  3px  #8FC93A,  
+    1px   -1px  3px  #8FC93A,
+    -1px  1px   3px  #8FC93A,
+    1px   1px   3px  #8FC93A;
 }
 
 #option3 {
