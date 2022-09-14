@@ -14,13 +14,17 @@
 
     <title>{{seo.title}}</title>
 
-    <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     {{#if eventSourceUrl}}
     <script type="text/javascript">
-        const sse = new EventSource({{eventSourceUrl}});
+      const events = new EventSource({{eventSourceUrl}});
+      events.onmessage = (event) => {
+        console.log(event.data);
+        $( "#info" ).text(JSON.stringify(event.data));
+      }
     </script>
     {{/if}}    
   </head>
