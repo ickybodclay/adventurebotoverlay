@@ -20,11 +20,10 @@
 
     {{#if eventSourceUrl}}
     <script type="text/javascript">
-      const events = new EventSource("{{eventSourceUrl}}?token={{token}}");
-      events.onmessage = (event) => {
-        console.log(event.data);
+      const events = new EventSource("{{eventSourceUrl}}?token={{token}}");  
+      events.addEventListener("heartbeat", (event) => {
         $( "#info" ).text(JSON.stringify(event.data));
-      };
+      });
     </script>
     {{/if}}    
   </head>

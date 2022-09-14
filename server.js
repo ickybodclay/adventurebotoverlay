@@ -5,16 +5,6 @@ const fastify = require("fastify")({
   logger: false,
 });
 
-// const fastifyCors = require("@fastify/cors");
-// const corsOptions = {
-//   origin: "*",
-//   methods: "GET",
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-//   exposedHeaders: "Authorization",
-// };
-// fastify.register(fastifyCors, corsOptions);
-
 fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "public"),
   prefix: "/", // optional: default '/'
@@ -35,8 +25,6 @@ if (seo.url === "glitch-default") {
 
 /**
  * Our home page route
- *
- * TODO: Add SSE client to listen for adventure bot endpoint changes
  *
  * Returns src/pages/index.hbs with data built into it
  */
