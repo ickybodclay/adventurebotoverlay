@@ -22,7 +22,11 @@
     <script type="text/javascript">
       const events = new EventSource("{{eventSourceUrl}}?token={{token}}");  
       events.addEventListener("heartbeat", (event) => {
-        $( "#info" ).text(JSON.stringify(event.data));
+        var infoHtml = "";
+        if (event.round === "START") {
+          
+        }
+        $( "#info" ).html(infoHtml);
       });
     </script>
     {{/if}}    
