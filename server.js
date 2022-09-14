@@ -4,16 +4,16 @@ const path = require("path");
 const fastify = require("fastify")({
   logger: false,
 });
-const fastifyCors = require("fastify-cors");
 
-const corsOptions = {
-  origin: "*",
-  methods: "GET",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-  exposedHeaders: "Authorization",
-};
-fastify.register(fastifyCors, corsOptions);
+// const fastifyCors = require("@fastify/cors");
+// const corsOptions = {
+//   origin: "*",
+//   methods: "GET",
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+//   exposedHeaders: "Authorization",
+// };
+// fastify.register(fastifyCors, corsOptions);
 
 fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "public"),
