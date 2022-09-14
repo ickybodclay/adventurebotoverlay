@@ -47,7 +47,7 @@
       });
       
       /**
-       * Convert bot responses to an ordered list.
+       * Convert bot responses to an ordered list (with vote totals, if any)
        */
       function responesesToHtml(responses, votes=[]) {
         if (responses.length < 1) return "";
@@ -83,6 +83,7 @@
       function getTimeRemaing(currentTime, roundStartTime, roundDurationInMins=1) {
         const roundEnd = roundStartTime + (roundDurationInMins*60*1000);
         const timeRemainingInMs = Math.abs(roundEnd - currentTime);
+        if (timeRemainingInMs == 0) return 0;
         return Math.max(0, timeRemainingInMs / 1000);
       }
     </script>
