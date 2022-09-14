@@ -8,7 +8,7 @@ to this section's matching END comment to see page-specific styles.
 ******************************************************************************/
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #BDC9FF;
+  --color-bg: #98C1D9;
   --color-text-main: #000000;
   --color-primary: #AFECE0;
   --wrapper-height: 1080px;
@@ -16,6 +16,7 @@ to this section's matching END comment to see page-specific styles.
 }
 /******************************************************************************
 END Glitch hello-app default styles
+https://coolors.co/55007f-98c1d9-e0fbfc-ee6c4d-a44a3f
 ******************************************************************************/
 
 body {
@@ -59,7 +60,7 @@ p {
 
 /* Title h1 style */
 .title {
-  color: #2800FF;
+  color: #EE6C4D;
   font-family: courier, courier new, monospace;
   font-style: normal;
   font-weight: bold;
