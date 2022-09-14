@@ -1,5 +1,4 @@
 const handlebars = require("handlebars");
-const handlebars = require("handlebars");
 const path = require("path");
 
 const fastify = require("fastify")({
@@ -32,8 +31,10 @@ if (seo.url === "glitch-default") {
  * Returns src/pages/index.hbs with data built into it
  */
 fastify.get("/", function (request, reply) {
-  let params = { seo: seo };
-  let eventSource = new EventSource();
+  let params = { 
+    seo: seo,
+    eventSourceUrl: process.env.AB_EVENTS_ENDPOINT
+  };
   return reply.view("/src/pages/index.hbs", params);
 });
 

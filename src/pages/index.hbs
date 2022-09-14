@@ -17,15 +17,11 @@
     <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
 
-    <!-- This is a handlebars IF statement
-         Checking for a custom "color" parameter from server.js -->
-    {{#if color}} 
-    <!-- If there is a color value, update the style for the page title -->
-    <style>
-      .title {
-        color: {{color}};
-      }
-    </style>
+
+    {{#if eventSourceUrl}}
+    <script type="text/javascript">
+        const sse = new EventSource({{eventSourceUrl}});
+    </script>
     {{/if}}    
   </head>
   <body>
@@ -34,60 +30,7 @@
         
         <!-- This is the start of content for our page -->
         <h1 class="title">Hello Node!</h1>
-        
-        <!-- Add text indicating that we've changed color OR had an error -->
-        {{#if color}}
-          <p class="color-info">
-            Now available in <b>{{color}}</b>!
-          </p>
-        {{/if}}  
-        
-        {{#if colorError}}
-          <p class="color-info">
-            
-            <!-- The server script passes colorError if the user submission can't be matched -->
-            Hmm. Couldn't find <b>"{{colorError}}"</b>. 
-            <a href="?randomize=go">Try a random color?</a>
-          </p>
-        {{/if}}
-        
-        <div class="color-form">
-          
-          <!-- Our default paragraph/message -->
-          {{#unless colorError}}
-            {{#unless color}}
-          
-            <!-- There are fancier ways to do this, 
-                 but nesting two "#unless" statements sets up an 
-                 "if these are both missing..." condition -->
-            <p>
-              Learn about communication with a server by talking about color.
-            </p>
-            {{/unless}}
-          {{/unless}}
-          
-          <!-- The "What's your favorite color?" form sends a POST request to the server
-               Check server.js to see how it works -->
-          <form class="color-search" method="post">
-              <label for="color">
-                
-                <!-- We use the handlebars "#if" statement so the form can adapt to its situation -->
-                {{#if color}}
-                  Try another color?<br>
-                {{else}}
-                  What's your favorite color?<br>
-                {{/if}}
-                <input id="color" name="color" required="required" type="text">
-              </label>
-            
-            <!-- If the user submits a value through the form 
-                 it'll be passed to the server in the request body  -->
-            <button type="submit">Submit</button>
-          </form>
-          
-          <!-- This randomize link communicates with the server (server.js) 
-               using a querystring and GET request instead of a form POST -->
-          Can't decide? <a href="?randomize=go">Use a random color!</a>
+        <div id="info">
         </div>
         
       </div>
