@@ -22,26 +22,26 @@
     <script type="text/javascript">
       const events = new EventSource("{{eventSourceUrl}}?token={{token}}");  
       events.addEventListener("heartbeat", (event) => {
+        const info = JSON.parse(event.data);
         var infoHtml = "";
-        if (event.round === "START") {
-          infoHtml += "<h1>Adventure Bot</h1>";
+        if (info.round === "START") {
           infoHtml += "<p>A brand new AI generated adventure is about to begin...</p>";
-        } else if (event.round === "PROMPT") {
+        } else if (info.round === "PROMPT") {
           infoHtml += "<p>Waiting for prompt from Jason...</p>";
-          if (event.winningResponse) {
-            infoHtml += `<br><br><p>Last AI response (${event.winningResponse.votes} votes):<br>${event.winningResponse.prompt}</p>`;
+          if (info.winningResponse) {
+            infoHtml += `<br><br><p>Last AI response (${info.winningResponse.votes} votes):<br>${info.winningResponse.prompt}</p>`;
           }
-        } else if (event.round === "GENERATE") {
-          infoHtml += `<p>Last action: ${event.currentPrompt.prmpt}</p><br><br>`;
-          if (event.botResponses) {
-            infoHtml += responesesToHtml(event.botResponses);
+        } else if (info.round === "GENERATE") {
+          infoHtml += `<p>Last action: ${info.currentPrompt.prmpt}</p><br><br>`;
+          if (info.botResponses) {
+            infoHtml += responesesToHtml(info.botResponses);
           } else {
             infoHtml += "<p>Generating...</p>";
           }
-        } else if (event.round === "VOTE") {
-          infoHtml += `<p>Last action: ${event.currentPrompt.prmpt}</p><br><br>`;
-          infoHtml += `<p>Vote for your favorite AI response (ex '!!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), event.roundStartTime, 2)})</p><br><br>`;
-          infoHtml += responesesToHtml(event.botResponses);
+        } else if (info.round === "VOTE") {
+          infoHtml += `<p>Last action: ${info.currentPrompt.prmpt}</p><br><br>`;
+          infoHtml += `<p>Vote for your favorite AI response (ex '!!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), info.roundStartTime, 2)})</p><br><br>`;
+          infoHtml += responesesToHtml(info.botResponses);
         }
         $( "#info" ).html(infoHtml);
       });
