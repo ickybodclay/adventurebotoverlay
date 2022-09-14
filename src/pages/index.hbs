@@ -40,11 +40,15 @@
           }
         } else if (event.round === "VOTE") {
           infoHtml += `<p>Last action: ${event.currentPrompt.prmpt}</p><br><br>`;
-          infoHtml += "<p>Vote for your favorite AI response (ex '!!vote 1') ";
+          infoHtml += `<p>Vote for your favorite AI response (ex '!!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), event.roundStartTime, 2)})</p><br><br>`;
+          infoHtml += responesesToHtml(event.botResponses);
         }
         $( "#info" ).html(infoHtml);
       });
       
+      /**
+       * Convert bot responses to an ordered list.
+       */
       function responesesToHtml(responses, votes=[]) {
         if (responses.length < 1) return "";
         
@@ -71,6 +75,15 @@
         listHtml += "</ol>";
         
         return listHtml;
+      }
+      
+      /**
+       * Calculate time remaining in round (in seconds)
+       */
+      function getTimeRemaing(currentTime, roundStartTime, roundDurationInMins=1) {
+        const roundEnd = roundStartTime + (roundDurationInMins*60*1000);
+        const timeRemainingInMs = Math.abs(roundEnd - currentTime);
+        return Math.max(0, timeRemainingInMs / 1000);
       }
     </script>
     {{/if}}    
