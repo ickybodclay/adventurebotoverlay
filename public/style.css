@@ -48,12 +48,13 @@ h1 {
 
 p {
   font-size: 1.25rem;
+  font-size: 36px;
   text-shadow:
-    1px   1px   0  #ffffff,
-    -1px  -1px  0  #ffffff,  
-    1px   -1px  0  #ffffff,
-    -1px  1px   0  #ffffff,
-    1px   1px   0  #ffffff;
+    1px   1px   0  #55007f,
+    -1px  -1px  0  #55007f,  
+    1px   -1px  0  #55007f,
+    -1px  1px   0  #55007f,
+    1px   px   0  #55007f;
 }
 
 /* Title h1 style */
