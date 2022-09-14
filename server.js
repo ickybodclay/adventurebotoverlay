@@ -4,6 +4,16 @@ const path = require("path");
 const fastify = require("fastify")({
   logger: false,
 });
+const fastifyCors = require("fastify-cors");
+
+const corsOptions = {
+  origin: "*",
+  methods: "GET",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  exposedHeaders: "Authorization",
+};
+fastify.register(fastifyCors, corsOptions);
 
 fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "public"),
@@ -31,9 +41,10 @@ if (seo.url === "glitch-default") {
  * Returns src/pages/index.hbs with data built into it
  */
 fastify.get("/", function (request, reply) {
-  let params = { 
+  let params = {
     seo: seo,
-    eventSourceUrl: `${process.env.AB_EVENTS_ENDPOINT}?token=${request.query.token}`
+    eventSourceUrl: process.env.AB_EVENTS_ENDPOINT,
+    token: request.query.token,
   };
   return reply.view("/src/pages/index.hbs", params);
 });
