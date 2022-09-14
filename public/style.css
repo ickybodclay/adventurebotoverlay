@@ -47,14 +47,14 @@ h1 {
 }
 
 p {
-  font-size: 1.25rem;
+  color: white;
   font-size: 36px;
+  font-weight: bold;
   text-shadow:
-    1px   1px   0  #55007f,
-    -1px  -1px  0  #55007f,  
-    1px   -1px  0  #55007f,
-    -1px  1px   0  #55007f,
-    1px   px   0  #55007f;
+    -1px  -1px  3px  #55007f,  
+    1px   -1px  3px  #55007f,
+    -1px  1px   3px  #55007f,
+    1px   1px   3px  #55007f;
 }
 
 /* Title h1 style */
