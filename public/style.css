@@ -58,6 +58,36 @@ p {
     1px   1px   3px  #55007f;
 }
 
+li {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#option1 {
+  text-shadow:
+    -1px  -1px  3px  #F46197,  
+    1px   -1px  3px  #F46197,
+    -1px  1px   3px  #F46197,
+    1px   1px   3px  #F46197;
+}
+
+#option2 {
+  text-shadow:
+    -1px  -1px  3px  #C9C19F,  
+    1px   -1px  3px  #C9C19F,
+    -1px  1px   3px  #C9C19F,
+    1px   1px   3px  #C9C19F;
+}
+
+#option3 {
+  text-shadow:
+    -1px  -1px  3px  #8390FA,  
+    1px   -1px  3px  #8390FA,
+    -1px  1px   3px  #8390FA,
+    1px   1px   3px  #8390FA;
+}
+
 /* Title h1 style */
 .title {
   color: #EE6C4D;

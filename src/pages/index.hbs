@@ -29,19 +29,19 @@
         } else if (info.round === "PROMPT") {
           infoHtml += "<p>Waiting for prompt from Jason...</p>";
           if (info.winningResponse) {
-            infoHtml += `<br><br><p>Last AI response (${info.winningResponse.votes} votes):<br>${info.winningResponse.prompt}</p>`;
+            infoHtml += `<p>Last AI response (${info.winningResponse.votes} votes):<br>${info.winningResponse.prompt}</p>`;
           }
         } else if (info.round === "GENERATE") {
-          infoHtml += `<p>Last action: ${info.currentPrompt.prmpt}</p><br><br>`;
+          infoHtml += `<p>Last action: ${info.currentPrompt.prompt}</p>`;
           if (info.botResponses) {
             infoHtml += responesesToHtml(info.botResponses);
           } else {
             infoHtml += "<p>Generating...</p>";
           }
         } else if (info.round === "VOTE") {
-          infoHtml += `<p>Last action: ${info.currentPrompt.prmpt}</p><br><br>`;
-          infoHtml += `<p>Vote for your favorite AI response (ex '!!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), info.roundStartTime, 2)})</p><br><br>`;
-          infoHtml += responesesToHtml(info.botResponses);
+          infoHtml += `<p>Last action: ${info.currentPrompt.prompt}</p>`;
+          infoHtml += `<p>Vote for your favorite AI response (ex '!!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), info.roundStartTime, 2)})</p>`;
+          infoHtml += responesesToHtml(info.botResponses, info.votes);
         }
         $( "#info" ).html(infoHtml);
       });
@@ -66,9 +66,9 @@
         for (let i=0; i<responses.length; ++i) {
           const voteCount = voteTotals[i];
           if (voteCount > 0) {
-            listHtml += `<li>${responses[i].prompt} [${voteCount} votes]</li>`;
+            listHtml += `<li id="option${i+1}">${responses[i].prompt} [${voteCount} votes]</li>`;
           } else {
-            listHtml += `<li>${responses[i].prompt}</li>`;
+            listHtml += `<li id="option${i+1}">${responses[i].prompt}</li>`;
           }
         }
         
