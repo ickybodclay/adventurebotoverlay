@@ -1,7 +1,7 @@
 {
   "name": "hular-hoops-stream-overlay",
   "version": "0.1.0",
-  "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
+  "description": "A stream overlay for Hular Hoops Bot.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
