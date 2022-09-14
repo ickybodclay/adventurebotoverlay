@@ -32,17 +32,45 @@
             infoHtml += `<br><br><p>Last AI response (${event.winningResponse.votes} votes):<br>${event.winningResponse.prompt}</p>`;
           }
         } else if (event.round === "GENERATE") {
-          infoHtml += "<p>";
-          infoHtml += `Last action: ${event.currentPrompt.prmpt}`;
-          infoHtml += "<p>";
+          infoHtml += `<p>Last action: ${event.currentPrompt.prmpt}</p><br><br>`;
+          if (event.botResponses) {
+            infoHtml += responesesToHtml(event.botResponses);
+          } else {
+            infoHtml += "<p>Generating...</p>";
+          }
         } else if (event.round === "VOTE") {
-          
+          infoHtml += `<p>Last action: ${event.currentPrompt.prmpt}</p><br><br>`;
+          infoHtml += "<p>Vote for your favorite AI response (ex '!!vote 1') ";
         }
         $( "#info" ).html(infoHtml);
       });
       
-      function responeseToHtml(responses) {
+      function responesesToHtml(responses, votes=[]) {
+        if (responses.length < 1) return "";
         
+        var listHtml = "<ol>";
+        
+        const voteTotals = [];
+        for (let i=0; i<responses.length; ++i) {
+          voteTotals.push(0);
+        }
+        
+        for (let i=0; i<votes.length; ++i) {
+          voteTotals[votes[i].vote] += 1;
+        }
+        
+        for (let i=0; i<responses.length; ++i) {
+          const voteCount = voteTotals[i];
+          if (voteCount > 0) {
+            listHtml += `<li>${responses[i].prompt} [${voteCount} votes]</li>`;
+          } else {
+            listHtml += `<li>${responses[i].prompt}</li>`;
+          }
+        }
+        
+        listHtml += "</ol>";
+        
+        return listHtml;
       }
     </script>
     {{/if}}    
