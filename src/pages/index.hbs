@@ -10,7 +10,7 @@
     
     <meta charset="utf-8" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=1920, height=1080, initial-scale=1" />
 
     <title>{{seo.title}}</title>
 
@@ -24,10 +24,26 @@
       events.addEventListener("heartbeat", (event) => {
         var infoHtml = "";
         if (event.round === "START") {
+          infoHtml += "<h1>Adventure Bot</h1>";
+          infoHtml += "<p>A brand new AI generated adventure is about to begin...</p>";
+        } else if (event.round === "PROMPT") {
+          infoHtml += "<p>Waiting for prompt from Jason...</p>";
+          if (event.winningResponse) {
+            infoHtml += `<br><br><p>Last AI response (${event.winningResponse.votes} votes):<br>${event.winningResponse.prompt}</p>`;
+          }
+        } else if (event.round === "GENERATE") {
+          infoHtml += "<p>";
+          infoHtml += `Last action: ${event.currentPrompt.prmpt}`;
+          infoHtml += "<p>";
+        } else if (event.round === "VOTE") {
           
         }
         $( "#info" ).html(infoHtml);
       });
+      
+      function responeseToHtml(responses) {
+        
+      }
     </script>
     {{/if}}    
   </head>
