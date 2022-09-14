@@ -37,8 +37,23 @@ body {
   justify-content: left;
 }
 
+h1 {
+  text-shadow:
+    3px   3px   0  #ffffff,
+    -1px  -1px  0  #ffffff,  
+    1px   -1px  0  #ffffff,
+    -1px  1px   0  #ffffff,
+    1px   1px   0  #ffffff;
+}
+
 p {
   font-size: 1.25rem;
+  text-shadow:
+    1px   1px   0  #ffffff,
+    -1px  -1px  0  #ffffff,  
+    1px   -1px  0  #ffffff,
+    -1px  1px   0  #ffffff,
+    1px   1px   0  #ffffff;
 }
 
 /* Title h1 style */
