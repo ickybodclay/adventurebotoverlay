@@ -83,19 +83,19 @@ li {
 #option2 {
   text-shadow:
     1px 1px 2px black,
-    -1px  -1px  3px  #053225,  
-    1px   -1px  3px  #053225,
-    -1px  1px   3px  #053225,
-    1px   1px   3px  #053225;
+    -1px  -1px  3px  #43AA8B,  
+    1px   -1px  3px  #43AA8B,
+    -1px  1px   3px  #43AA8B,
+    1px   1px   3px  #43AA8B;
 }
 
 #option3 {
   text-shadow:
     1px 1px 2px black,
-    -1px  -1px  3px  #8390FA,  
-    1px   -1px  3px  #8390FA,
-    -1px  1px   3px  #8390FA,
-    1px   1px   3px  #8390FA;
+    -1px  -1px  3px  #3066BE,  
+    1px   -1px  3px  #3066BE,
+    -1px  1px   3px  #3066BE,
+    1px   1px   3px  #3066BE;
 }
 
 /* Title h1 style */
