@@ -41,7 +41,7 @@ body {
 h1, h2 {
   text-shadow:
     1px 1px 2px black,
-    3px   3px   0  #ffffff,
+    3px   3px   10px  #ffffff,
     -1px  -1px  0  #ffffff,  
     1px   -1px  0  #ffffff,
     -1px  1px   0  #ffffff,
@@ -110,11 +110,12 @@ li {
 }
 
 .subtitle {
-  color: #44355B;
+  color: #FCD757;
   font-family: courier, courier new, monospace;
   font-style: italic;
   font-weight: bold;
   font-size: 42px;
+  margin-left: 30px;
 }
 
 /* Very light scaling for our illustration */
