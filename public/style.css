@@ -38,7 +38,7 @@ body {
   justify-content: left;
 }
 
-h1 {
+h1, h2 {
   text-shadow:
     1px 1px 2px black,
     3px   3px   0  #ffffff,
@@ -54,10 +54,10 @@ p {
   font-weight: bold;
   text-shadow:
     1px 1px 2px black,
-    -1px  -1px  3px  #55007f,  
-    1px   -1px  3px  #55007f,
-    -1px  1px   3px  #55007f,
-    1px   1px   3px  #55007f;
+    -1px  -1px  6px  #7952b3,  
+    1px   -1px  6px  #7952b3,
+    -1px  1px   6px  #7952b3,
+    1px   1px   6px  #7952b3;
 }
 
 ol {
@@ -74,28 +74,28 @@ li {
 #option1 {
   text-shadow:
     1px 1px 2px black,
-    -1px  -1px  3px  #F46197,  
-    1px   -1px  3px  #F46197,
-    -1px  1px   3px  #F46197,
-    1px   1px   3px  #F46197;
+    -1px  -1px  6px  #F46197,  
+    1px   -1px  6px  #F46197,
+    -1px  1px   6px  #F46197,
+    1px   1px   6px  #F46197;
 }
 
 #option2 {
   text-shadow:
     1px 1px 2px black,
-    -1px  -1px  3px  #43AA8B,  
-    1px   -1px  3px  #43AA8B,
-    -1px  1px   3px  #43AA8B,
-    1px   1px   3px  #43AA8B;
+    -1px  -1px  6px  #43AA8B,  
+    1px   -1px  6px  #43AA8B,
+    -1px  1px   6px  #43AA8B,
+    1px   1px   6px  #43AA8B;
 }
 
 #option3 {
   text-shadow:
     1px 1px 2px black,
-    -1px  -1px  3px  #3066BE,  
-    1px   -1px  3px  #3066BE,
-    -1px  1px   3px  #3066BE,
-    1px   1px   3px  #3066BE;
+    -1px  -1px  6px  #3066BE,  
+    1px   -1px  6px  #3066BE,
+    -1px  1px   6px  #3066BE,
+    1px   1px   6px  #3066BE;
 }
 
 /* Title h1 style */
@@ -104,9 +104,17 @@ li {
   font-family: courier, courier new, monospace;
   font-style: normal;
   font-weight: bold;
-  font-size: 100px;
+  font-size: 69px;
   line-height: 105%;
   margin: 2rem 0 0;
+}
+
+.subtitle {
+  color: #44355B;
+  font-family: courier, courier new, monospace;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 42px;
 }
 
 /* Very light scaling for our illustration */
