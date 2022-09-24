@@ -40,7 +40,7 @@
           }
         } else if (info.round === "VOTE") {
           infoHtml += `<p>Last action: ${info.currentPrompt.prompt}</p>`;
-          infoHtml += `<p>Vote for your favorite AI response (ex '!!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), info.roundStartTime, 2)})</p>`;
+          infoHtml += `<p>Vote for your favorite AI response (ex '!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), info.roundStartTime, 2)})</p>`;
           infoHtml += responesesToHtml(info.botResponses, info.votes);
         }
         $( "#info" ).html(infoHtml);
