@@ -81,9 +81,10 @@
        * Calculate time remaining in round (in seconds)
        */
       function getTimeRemaing(currentTime, roundStartTime, roundDurationInMins=1) {
-        const roundEnd = roundStartTime + (roundDurationInMins*60*1000);
+        const roundDurationInMs = (roundDurationInMins*60*1000);
+        const roundEnd = roundStartTime + roundDurationInMs;
         const timeRemainingInMs = Math.abs(roundEnd - currentTime);
-        if (timeRemainingInMs == 0) return 0;
+        if (timeRemainingInMs <= 0 || timeRemainingInMs > roundDurationInMs) return 0;
         return Math.round(Math.max(0, timeRemainingInMs / 1000));
       }
     </script>
