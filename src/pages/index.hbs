@@ -31,17 +31,15 @@
           if (info.winningResponse) {
             infoHtml += `<p>Last AI response (${info.winningResponse.votes} votes):<br>${info.winningResponse.prompt}</p>`;
           }
-        } else if (info.round === "GENERATE") {
+        } else if (info.round === "GENERATE" || info.round === "VOTE") {
           infoHtml += `<p>Last action: ${info.currentPrompt.prompt}</p>`;
           if (info.botResponses) {
-            infoHtml += responesesToHtml(info.botResponses);
+            infoHtml += `<p>Vote for your favorite AI response (ex '!vote 1')</p>`;
+            infoHtml += responesesToHtml(info.botResponses, info.votes);
+            // const timeRemaining = getTimeRemaing(Date.now(), info.roundStartTime, 2);
           } else {
             infoHtml += "<p>Generating...</p>";
           }
-        } else if (info.round === "VOTE") {
-          infoHtml += `<p>Last action: ${info.currentPrompt.prompt}</p>`;
-          infoHtml += `<p>Vote for your favorite AI response (ex '!vote 1') (Time remaining: ${getTimeRemaing(Date.now(), info.roundStartTime, 2)})</p>`;
-          infoHtml += responesesToHtml(info.botResponses, info.votes);
         }
         $( "#info" ).html(infoHtml);
       });
