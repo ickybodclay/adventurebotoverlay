@@ -5,7 +5,7 @@ const events = new EventSource(
   `https://hular-hoops-bot.glitch.me/adventurebot/events?token=${token}`
 );
 
-events.on("heartbeat"(event) => {
+events.addEventListener('heartbeat', (event) => {
   const info = JSON.parse(event.data);
   var infoHtml = "";
   if (info.round === "START") {
@@ -26,15 +26,19 @@ events.on("heartbeat"(event) => {
     }
   }
   $( "#info" ).html(infoHtml);
-};
+});
 
-events.onopen = (event) => {
-  console.log("event source connected!");
-};
+events.addEventListener('message', (event) => {
+  console.log(event);
+});
 
-events.onerror = (err) => {
+events.addEventListener('open', (event) => {
+  console.log(event);
+});
+
+events.addEventListener('error', (err) => {
   console.error(err);
-};
+});
 
 /**
  * Convert bot responses to an ordered list (with vote totals, if any)
