@@ -3,8 +3,9 @@ if (!token) throw "Missing token parameter";
 
 const events = new EventSource(
   `https://hular-hoops-bot.glitch.me/adventurebot/events?token=${token}`
-);  
-events.addEventListener("heartbeat", (event) => {
+);
+
+events.on("heartbeat"(event) => {
   const info = JSON.parse(event.data);
   var infoHtml = "";
   if (info.round === "START") {
@@ -25,7 +26,15 @@ events.addEventListener("heartbeat", (event) => {
     }
   }
   $( "#info" ).html(infoHtml);
-});
+};
+
+events.onopen = (event) => {
+  console.log("event source connected!");
+};
+
+events.onerror = (err) => {
+  console.error(err);
+};
 
 /**
  * Convert bot responses to an ordered list (with vote totals, if any)
