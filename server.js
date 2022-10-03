@@ -30,9 +30,7 @@ if (seo.url === "glitch-default") {
  */
 fastify.get("/", function (request, reply) {
   let params = {
-    seo: seo,
-    eventSourceUrl: process.env.AB_EVENTS_ENDPOINT,
-    token: request.query.token,
+    seo: seo
   };
   return reply.view("/src/pages/index.hbs", params);
 });
