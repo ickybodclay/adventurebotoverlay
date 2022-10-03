@@ -34,11 +34,11 @@ events.addEventListener('message', (event) => {
 });
 
 events.addEventListener('open', (event) => {
-  console.log(event);
+  console.log("AdventureBot-Overlay> event source client opened");
 });
 
 events.addEventListener('error', (err) => {
-  console.error(err);
+  console.error("AdventureBot-Overlay> an error occured connecting to event source");
 });
 
 /**
