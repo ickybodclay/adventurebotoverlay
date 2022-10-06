@@ -21,7 +21,7 @@ events.addEventListener('heartbeat', (event) => {
     if (info.botResponses) {
       infoHtml += `<p>Vote for your favorite AI response (ex '!vote 1')</p>`;
       infoHtml += responesesToHtml(info.botResponses, info.votes);
-      // const timeRemaining = getTimeRemaing(Date.now(), info.roundStartTime, 2);
+      // const timeRemaining = getTimeRemaing(Date.now(), info.roundStartTime, 1.5);
     } else {
       infoHtml += "<p>Generating...</p>";
     }
