@@ -10,8 +10,6 @@ fastify.register(require("@fastify/static"), {
   prefix: "/", // optional: default '/'
 });
 
-fastify.register(require("@fastify/formbody"));
-
 fastify.register(require("@fastify/view"), {
   engine: {
     handlebars: handlebars,
@@ -28,7 +26,7 @@ if (seo.url === "glitch-default") {
  *
  * Returns src/pages/index.hbs with data built into it
  */
-fastify.get("/", function (request, reply) {
+fastify.get("/", (request, reply) => {
   let params = {
     seo: seo
   };
@@ -37,7 +35,7 @@ fastify.get("/", function (request, reply) {
 
 fastify.listen(
   { port: process.env.PORT, host: "0.0.0.0" },
-  function (err, address) {
+  (err, address) => {
     if (err) {
       fastify.log.error(err);
       process.exit(1);

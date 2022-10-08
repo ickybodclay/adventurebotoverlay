@@ -6,7 +6,7 @@ const events = new EventSource(
   // { withCredentials: true }
 );
 
-events.addEventListener('heartbeat', (event) => {
+events.addEventListener('heartbeat', event => {
   const info = JSON.parse(event.data);
   var infoHtml = "";
   if (info.round === "START") {
@@ -29,15 +29,15 @@ events.addEventListener('heartbeat', (event) => {
   $( "#info" ).html(infoHtml);
 });
 
-events.addEventListener('message', (event) => {
-  console.log(event);
-});
+events.onmessage = message => {
+  console.log(message);
+};
 
-events.addEventListener('open', (event) => {
+events.addEventListener('open', event => {
   console.log("AdventureBot-Overlay> event source client opened");
 });
 
-events.addEventListener('error', (err) => {
+events.addEventListener('error', err => {
   console.error("AdventureBot-Overlay> an error occured connecting to event source");
 });
 
