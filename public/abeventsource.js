@@ -3,7 +3,7 @@ if (!token) throw "Missing token parameter";
 
 const events = new EventSource(
   `https://hular-hoops-bot.glitch.me/adventurebot/events?token=${token}`,
-  { withCredentials: true }
+  // { withCredentials: true }
 );
 
 events.addEventListener('heartbeat', (event) => {
