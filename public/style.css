@@ -1,12 +1,6 @@
 /******************************************************************************
-START Glitch hello-app default styles
-
-The styles in this section do some minimal CSS resets, set default fonts and 
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
+https://coolors.co/55007f-98c1d9-e0fbfc-ee6c4d-a44a3f
 ******************************************************************************/
-/* Our default values set as CSS variables */
 :root {
   --color-bg: #98C1D9;
   --color-text-main: #000000;
@@ -14,21 +8,15 @@ to this section's matching END comment to see page-specific styles.
   --wrapper-height: 1080px;
   --image-margin: 3rem;
 }
-/******************************************************************************
-END Glitch hello-app default styles
-https://coolors.co/55007f-98c1d9-e0fbfc-ee6c4d-a44a3f
-******************************************************************************/
 
 body {
   font-family: courier, courier new, monospace;
   background-color: var(--color-bg);
 }
 
-/* Page structure */
 .wrapper {
   min-height: var(--wrapper-height);
   display: grid;
-/*   place-items: center; */
   margin: 0 1rem;
 }
 .content {
