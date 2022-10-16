@@ -25,6 +25,13 @@ events.addEventListener('heartbeat', event => {
     } else {
       infoHtml += "<p>Generating...</p>";
     }
+  } else if (info.round === "END") {
+    infoHtml += `<p class="end-prompt">${info.endPrompt}</p>`;
+    if (info.endResponse) {
+      infoHtml += `<p class="end-response">${info.endResponse}</p>`;
+    } else {
+      infoHtml += "<p>Generating...</p>";
+    }
   }
   $( "#info" ).html(infoHtml);
 });
